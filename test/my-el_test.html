@@ -31,8 +31,10 @@
         test('instantiating the element with default properties works', () => {
           const element = fixture('BasicTestFixture');
           assert.equal(element.prop1, 'my-el');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
+          // const elementShadowRoot = element.shadowRoot;
+          // const elementHeader = elementShadowRoot.querySelector('h2');
+
+          const elementHeader = Polymer.dom(element.root).querySelector('h2')
           assert.equal(elementHeader.innerHTML, 'Hello my-el!');
         });
 
@@ -40,8 +42,9 @@
           // Create a test fixture
           const element = fixture('ChangedPropertyTestFixture');
           assert.equal(element.prop1, 'new-prop1');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
+          // const elementShadowRoot = element.shadowRoot;
+          // const elementHeader = elementShadowRoot.querySelector('h2');
+          const elementHeader = Polymer.dom(element.root).querySelector('h2')
           assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
         });
 
