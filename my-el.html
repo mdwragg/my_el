@@ -1,4 +1,4 @@
-<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/polymer.html">
 
 <dom-module id="my-el">
   <template>
@@ -11,26 +11,18 @@
   </template>
 
   <script>
-    /**
-     * `my-el`
-     * 
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class MyEl extends Polymer.Element {
-      static get is() { return 'my-el'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'my-el'
-          }
-        };
-      }
-    }
+        (function() {
+        'use strict';
 
-    window.customElements.define(MyEl.is, MyEl);
+        Polymer({
+          is: 'my-el',
+          properties: {
+            "prop1": {
+              type: String,
+              value: 'my-el'
+            }
+          }
+        });
+      })();
   </script>
 </dom-module>
